@@ -39,7 +39,9 @@ const securityHeaders: [string, string][] = [
 	['X-Content-Type-Options', 'nosniff'],
 	['X-DNS-Prefetch-Control', 'off'],
 	['X-Download-Options', 'noopen'],
-	['X-Frame-Options', 'SAMEORIGIN'],
+	// Allow the Classboard bookmarklet to frame InvisiProxy on its supported hosts.
+	// Keep frame embedding restricted to these origins instead of allowing any site.
+	['Content-Security-Policy', 'frame-ancestors https://*.instructure.com https://hsoirghfohdj.github.io https://classboardd.vercel.app https://*.netlify.app'],
 	['X-Permitted-Cross-Domain-Policies', 'none'],
 	['X-XSS-Protection', '0'],
 ];
